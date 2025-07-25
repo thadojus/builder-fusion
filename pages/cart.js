@@ -68,7 +68,7 @@ export default function CartPage() {
                       </Link>
                       <p className="text-gray-500 text-sm mt-1">{item.category}</p>
                       <p className="text-lg font-semibold text-gray-900 mt-2">
-                        ${item.price}
+                        ₹{item.price.toLocaleString('en-IN')}
                       </p>
                     </div>
                     
@@ -104,7 +104,7 @@ export default function CartPage() {
                     {/* Item Total */}
                     <div className="text-right">
                       <p className="text-lg font-semibold text-gray-900">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                       </p>
                     </div>
                   </div>

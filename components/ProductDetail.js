@@ -38,7 +38,7 @@ const ProductDetail = ({ product }) => {
             </h1>
             <div className="flex items-center space-x-4">
               <span className="text-2xl font-bold text-gray-900">
-                ${product.price}
+                ₹{product.price.toLocaleString('en-IN')}
               </span>
               <div className="flex items-center">
                 <div className="flex text-yellow-400">

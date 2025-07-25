@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
           </p>
           <div className="flex items-center justify-between">
             <span className="text-xl font-bold text-gray-900">
-              ${product.price}
+              ₹{product.price.toLocaleString('en-IN')}
             </span>
             <div className="flex items-center">
               <div className="flex text-yellow-400">
