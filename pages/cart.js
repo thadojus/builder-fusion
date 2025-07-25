@@ -125,23 +125,23 @@ export default function CartPage() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium">${getCartTotal().toFixed(2)}</span>
+                  <span className="font-medium">₹{getCartTotal().toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Shipping</span>
                   <span className="font-medium">
-                    {getCartTotal() > 50 ? 'Free' : '$9.99'}
+                    {getCartTotal() > 4000 ? 'Free' : '₹499'}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Tax</span>
-                  <span className="font-medium">${(getCartTotal() * 0.08).toFixed(2)}</span>
+                  <span className="text-gray-600">Tax (GST)</span>
+                  <span className="font-medium">₹{Math.round(getCartTotal() * 0.18).toLocaleString('en-IN')}</span>
                 </div>
                 <div className="border-t pt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
                     <span>
-                      ${(getCartTotal() + (getCartTotal() > 50 ? 0 : 9.99) + (getCartTotal() * 0.08)).toFixed(2)}
+                      ₹{(getCartTotal() + (getCartTotal() > 4000 ? 0 : 499) + Math.round(getCartTotal() * 0.18)).toLocaleString('en-IN')}
                     </span>
                   </div>
                 </div>
@@ -158,10 +158,10 @@ export default function CartPage() {
                 Continue Shopping
               </Link>
               
-              {getCartTotal() < 50 && (
+              {getCartTotal() < 4000 && (
                 <div className="mt-4 p-3 bg-blue-50 rounded-md">
                   <p className="text-sm text-blue-700">
-                    Add ${(50 - getCartTotal()).toFixed(2)} more for free shipping!
+                    Add ₹{(4000 - getCartTotal()).toLocaleString('en-IN')} more for free shipping!
                   </p>
                 </div>
               )}
