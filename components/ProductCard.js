@@ -12,8 +12,12 @@ const ProductCard = ({ product }) => {
   return (
     <Link href={`/product/${product.id}`} className="group">
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-        <div className="aspect-square bg-gray-200 flex items-center justify-center">
-          <span className="text-gray-500">Product Image</span>
+        <div className="aspect-square bg-gray-200 overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
         <div className="p-4">
           <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
