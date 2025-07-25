@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ProductList from '../components/ProductList';
 import productsData from '../data/products.json';
+import categoriesData from '../data/categories.json';
 
 export default function Home({ featuredProducts, categories }) {
   return (
