@@ -94,7 +94,7 @@ export default function ProductPage({ product, relatedProducts }) {
               </svg>
               <div>
                 <h4 className="font-medium text-gray-900">Fast Shipping</h4>
-                <p className="text-gray-600 text-sm">Free shipping on orders over $50</p>
+                <p className="text-gray-600 text-sm">Free shipping on orders over ₹4000</p>
               </div>
             </div>
             <div className="flex items-start">
