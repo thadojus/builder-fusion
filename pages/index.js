@@ -7,20 +7,27 @@ export default function Home({ featuredProducts, categories }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 mb-12">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Welcome to ShopEase
-          </h1>
-          <p className="text-xl mb-6">
-            Discover amazing products at unbeatable prices. Shop the latest in clothing, electronics, and home goods.
-          </p>
-          <Link
-            href="/category/electronics"
-            className="inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
-          >
-            Shop Now
-          </Link>
+      <section className="relative h-96 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg overflow-hidden mb-12">
+        <img
+          src="https://images.pexels.com/photos/6969962/pexels-photo-6969962.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
+          alt="Shopping Experience"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+        <div className="relative z-10 flex items-center h-full p-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Welcome to ShopEase
+            </h1>
+            <p className="text-xl mb-6">
+              Discover amazing products at unbeatable prices. Shop the latest in clothing, electronics, and home goods.
+            </p>
+            <Link
+              href="/category/electronics"
+              className="inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+            >
+              Shop Now
+            </Link>
+          </div>
         </div>
       </section>
 
