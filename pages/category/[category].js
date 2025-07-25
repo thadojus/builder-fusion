@@ -3,7 +3,7 @@ import ProductList from '../../components/ProductList';
 import productsData from '../../data/products.json';
 import categoriesData from '../../data/categories.json';
 
-export default function CategoryPage({ products, category }) {
+export default function CategoryPage({ products, category, categoryInfo }) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -13,10 +13,25 @@ export default function CategoryPage({ products, category }) {
   const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Category Header */}
-      <div className="mb-8">
-        <nav className="flex mb-4" aria-label="Breadcrumb">
+    <div>
+      {/* Category Banner */}
+      <div className="relative h-64 bg-gray-900 overflow-hidden">
+        <img 
+          src={categoryInfo.image} 
+          alt={categoryInfo.name}
+          className="w-full h-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl font-bold mb-2">{categoryInfo.name}</h1>
+            <p className="text-xl">{categoryInfo.description}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Breadcrumb */}
+        <nav className="flex mb-6" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2">
             <li>
               <a href="/" className="text-gray-500 hover:text-gray-700">
@@ -31,45 +46,45 @@ export default function CategoryPage({ products, category }) {
             </li>
           </ol>
         </nav>
-        
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {categoryName}
-        </h1>
-        <p className="text-gray-600">
-          {products.length} product{products.length !== 1 ? 's' : ''} available
-        </p>
-      </div>
 
-      {/* Filters Section (Basic) */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-8">
-        <div className="flex flex-wrap items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <span className="text-sm font-medium text-gray-700">Sort by:</span>
-            <select className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option>Featured</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Rating</option>
-              <option>Newest</option>
-            </select>
-          </div>
-          <div className="text-sm text-gray-500">
-            Showing {products.length} results
+        {/* Category Info */}
+        <div className="mb-8">
+          <p className="text-gray-600">
+            {products.length} product{products.length !== 1 ? 's' : ''} available
+          </p>
+        </div>
+
+        {/* Filters Section */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-8">
+          <div className="flex flex-wrap items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <span className="text-sm font-medium text-gray-700">Sort by:</span>
+              <select className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Rating</option>
+                <option>Newest</option>
+              </select>
+            </div>
+            <div className="text-sm text-gray-500">
+              Showing {products.length} results
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Products Grid */}
-      <ProductList products={products} />
+        {/* Products Grid */}
+        <ProductList products={products} />
 
-      {/* Category Description */}
-      <div className="mt-12 bg-gray-50 rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-3">
-          About {categoryName}
-        </h2>
-        <p className="text-gray-600">
-          {getCategoryDescription(category)}
-        </p>
+        {/* Category Description */}
+        <div className="mt-12 bg-gray-50 rounded-lg p-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            About {categoryName}
+          </h2>
+          <p className="text-gray-600">
+            {getCategoryDescription(category)}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -112,10 +127,18 @@ export async function getStaticProps({ params }) {
     return b.rating - a.rating;
   });
 
+  // Get category info
+  const categoryInfo = categoriesData[category] || {
+    name: category.charAt(0).toUpperCase() + category.slice(1),
+    image: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    description: 'Browse our curated selection of high-quality products.'
+  };
+
   return {
     props: {
       products,
-      category
+      category,
+      categoryInfo
     }
   };
 }
