@@ -38,19 +38,33 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, []);
+  const [isClient, setIsClient] = useState(false);
 
-  // Load cart from localStorage on mount
+  // Set client flag on mount
   useEffect(() => {
-    const savedCart = localStorage.getItem('ecommerce-cart');
-    if (savedCart) {
-      dispatch({ type: 'LOAD_CART', payload: JSON.parse(savedCart) });
-    }
+    setIsClient(true);
   }, []);
 
-  // Save cart to localStorage whenever cart changes
+  // Load cart from localStorage on mount (client-side only)
   useEffect(() => {
-    localStorage.setItem('ecommerce-cart', JSON.stringify(cart));
-  }, [cart]);
+    if (isClient) {
+      const savedCart = localStorage.getItem('ecommerce-cart');
+      if (savedCart) {
+        try {
+          dispatch({ type: 'LOAD_CART', payload: JSON.parse(savedCart) });
+        } catch (error) {
+          console.error('Error loading cart from localStorage:', error);
+        }
+      }
+    }
+  }, [isClient]);
+
+  // Save cart to localStorage whenever cart changes (client-side only)
+  useEffect(() => {
+    if (isClient && cart.length >= 0) {
+      localStorage.setItem('ecommerce-cart', JSON.stringify(cart));
+    }
+  }, [cart, isClient]);
 
   const addToCart = (product) => {
     dispatch({ type: 'ADD_TO_CART', payload: product });
