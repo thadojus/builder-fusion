@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import ProductList from '../../components/ProductList';
 import productsData from '../../data/products.json';
+import categoriesData from '../../data/categories.json';
 
 export default function CategoryPage({ products, category }) {
   const router = useRouter();
