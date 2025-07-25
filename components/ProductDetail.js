@@ -23,8 +23,12 @@ const ProductDetail = ({ product }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
-          <span className="text-gray-500 text-lg">Product Image</span>
+        <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
         </div>
         
         <div className="space-y-6">
