@@ -25,7 +25,7 @@ const Header = () => {
               Electronics
             </Link>
             <Link href="/category/home" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Home
+              Home & Garden
             </Link>
           </nav>
 
