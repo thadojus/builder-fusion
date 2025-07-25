@@ -51,8 +51,12 @@ export default function CartPage() {
                 <div key={item.id} className="p-6">
                   <div className="flex items-center space-x-4">
                     {/* Product Image */}
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-gray-500 text-xs">Image</span>
+                    <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     
                     {/* Product Details */}
