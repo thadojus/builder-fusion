@@ -1,0 +1,112 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Vintage Leather Jacket",
+    "category": "clothing",
+    "price": 129.99,
+    "image": "/images/products/jacket.jpg",
+    "description": "A classic vintage leather jacket perfect for any outfit. Made from genuine leather with a comfortable fit.",
+    "rating": 4.5,
+    "stock": 12,
+    "featured": true
+  },
+  {
+    "id": "prod-002",
+    "name": "Noise Cancelling Headphones",
+    "category": "electronics",
+    "price": 199.99,
+    "image": "/images/products/headphones.jpg",
+    "description": "Enjoy music in peace with these premium noise cancelling headphones. Superior sound quality and comfort.",
+    "rating": 4.7,
+    "stock": 8,
+    "featured": true
+  },
+  {
+    "id": "prod-003",
+    "name": "Organic Cotton T-Shirt",
+    "category": "clothing",
+    "price": 29.99,
+    "image": "/images/products/tshirt.jpg",
+    "description": "Comfortable organic cotton t-shirt available in multiple colors. Perfect for everyday wear.",
+    "rating": 4.2,
+    "stock": 25,
+    "featured": false
+  },
+  {
+    "id": "prod-004",
+    "name": "Smartphone Pro",
+    "category": "electronics",
+    "price": 899.99,
+    "image": "/images/products/smartphone.jpg",
+    "description": "Latest smartphone with advanced camera and powerful processor. Perfect for photography and gaming.",
+    "rating": 4.8,
+    "stock": 15,
+    "featured": true
+  },
+  {
+    "id": "prod-005",
+    "name": "Running Shoes",
+    "category": "clothing",
+    "price": 89.99,
+    "image": "/images/products/shoes.jpg",
+    "description": "Lightweight running shoes with excellent cushioning and support. Ideal for daily workouts.",
+    "rating": 4.4,
+    "stock": 30,
+    "featured": false
+  },
+  {
+    "id": "prod-006",
+    "name": "Wireless Speaker",
+    "category": "electronics",
+    "price": 79.99,
+    "image": "/images/products/speaker.jpg",
+    "description": "Portable wireless speaker with rich sound and long battery life. Perfect for outdoor activities.",
+    "rating": 4.3,
+    "stock": 20,
+    "featured": false
+  },
+  {
+    "id": "prod-007",
+    "name": "Coffee Maker",
+    "category": "home",
+    "price": 149.99,
+    "image": "/images/products/coffee-maker.jpg",
+    "description": "Programmable coffee maker with built-in grinder. Wake up to freshly brewed coffee every morning.",
+    "rating": 4.6,
+    "stock": 10,
+    "featured": true
+  },
+  {
+    "id": "prod-008",
+    "name": "Yoga Mat",
+    "category": "home",
+    "price": 39.99,
+    "image": "/images/products/yoga-mat.jpg",
+    "description": "Non-slip yoga mat with excellent cushioning. Perfect for yoga, pilates, and fitness routines.",
+    "rating": 4.1,
+    "stock": 18,
+    "featured": false
+  },
+  {
+    "id": "prod-009",
+    "name": "Gaming Laptop",
+    "category": "electronics",
+    "price": 1299.99,
+    "image": "/images/products/laptop.jpg",
+    "description": "High-performance gaming laptop with dedicated graphics card. Perfect for gaming and creative work.",
+    "rating": 4.9,
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "id": "prod-010",
+    "name": "Designer Sunglasses",
+    "category": "clothing",
+    "price": 159.99,
+    "image": "/images/products/sunglasses.jpg",
+    "description": "Stylish designer sunglasses with UV protection. Perfect accessory for any outfit.",
+    "rating": 4.3,
+    "stock": 22,
+    "featured": false
+  }
+]
