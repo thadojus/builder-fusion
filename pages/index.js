@@ -30,29 +30,34 @@ export default function Home({ featuredProducts, categories }) {
           Shop by Category
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {categories.map((category) => (
-            <Link
-              key={category.name}
-              href={`/category/${category.name}`}
-              className="group"
-            >
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500 text-lg">
-                    {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-                  </span>
+          {categories.map((category) => {
+            const categoryData = categoriesData[category.name];
+            return (
+              <Link
+                key={category.name}
+                href={`/category/${category.name}`}
+                className="group"
+              >
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={categoryData?.image || 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'}
+                      alt={categoryData?.name || category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      {categoryData?.name || category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+                    </h3>
+                    <p className="text-gray-600">
+                      {category.count} products available
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-                  </h3>
-                  <p className="text-gray-600">
-                    {category.count} products available
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
