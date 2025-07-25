@@ -1,0 +1,17 @@
+{
+  "clothing": {
+    "name": "Clothing",
+    "image": "https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    "description": "Discover our latest collection of clothing including jackets, t-shirts, shoes, and accessories."
+  },
+  "electronics": {
+    "name": "Electronics", 
+    "image": "https://images.pexels.com/photos/33104417/pexels-photo-33104417.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    "description": "Explore cutting-edge electronics including smartphones, headphones, laptops, and speakers."
+  },
+  "home": {
+    "name": "Home",
+    "image": "https://images.pexels.com/photos/8490204/pexels-photo-8490204.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop", 
+    "description": "Transform your living space with our home collection featuring coffee makers, yoga mats, and more."
+  }
+}
