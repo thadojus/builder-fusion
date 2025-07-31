@@ -23,7 +23,7 @@ export default function Home({ featuredProducts, categories }) {
             </p>
             <Link
               href="/category/electronics"
-              className="inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-700 transition-colors"
             >
               Shop Now
             </Link>
