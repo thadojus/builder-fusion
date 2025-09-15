@@ -7,37 +7,26 @@ export async function getStaticProps({ params, preview = false }) {
 
   const content = await builder
     .get('page', {
-      userAttributes: {
-        urlPath,
-      },
+      userAttributes: { urlPath },
       prerender: false,
     })
     .toPromise();
 
   if (!content && !preview) {
-    return {
-      notFound: true,
-      revalidate: 5,
-    };
+    return { notFound: true, revalidate: 5 };
   }
 
   return {
-    props: {
-      content: content || null,
-      urlPath,
-    },
+    props: { content: content || null, urlPath },
     revalidate: 5,
   };
 }
 
 export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
+  return { paths: [], fallback: 'blocking' };
 }
 
-export default function BuilderPage({ content }) {
+export default function BuilderCatchAll({ content }) {
   if (!content) return null;
   return <BuilderComponent model="page" content={content} />;
 }
