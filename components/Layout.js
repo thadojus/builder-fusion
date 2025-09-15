@@ -1,5 +1,5 @@
 import Header from './Header';
-import CustomCanvasBlock from './CustomCanvasBlock';
+import AstroHeroSection from './AstroHeroSection';
 
 const Layout = ({ children }) => {
   return (
