@@ -9,6 +9,7 @@ export async function getStaticProps({ params, preview = false }) {
     .get('page', {
       userAttributes: { urlPath },
       prerender: false,
+      cachebust: !!preview,
     })
     .toPromise();
 
