@@ -36,13 +36,8 @@ export default function CustomerRegistrationForm() {
   };
 
   return (
-    <section className="bg-white rounded-lg shadow-md p-6 mt-12">
+    <section className="bg-yellow-50 rounded-lg shadow-md p-6 mt-12 border border-yellow-100">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Customer Registration</h2>
-      {!canSubmit && (
-        <p className="mb-4 text-sm text-orange-700 bg-orange-50 border border-orange-200 rounded p-3">
-          Set NEXT_PUBLIC_API_BASE_URL to your backend (e.g., http://localhost:8080) in [Open Settings](#open-settings) → Environment to enable form submission.
-        </p>
-      )}
       <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">First Name</label>
