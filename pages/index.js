@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ProductList from '../components/ProductList';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
+import AstroHeroSection from '../components/AstroHeroSection';
 
 export default function Home({ featuredProducts, categories }) {
   return (
@@ -31,7 +32,26 @@ export default function Home({ featuredProducts, categories }) {
         </div>
       </section>
 
-      {/* Categories Section */}
+      {/* Featured Products Section */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Featured Products
+          </h2>
+          <Link
+            href="/category/electronics"
+            className="text-blue-600 hover:text-blue-700 font-medium"
+          >
+            View All
+          </Link>
+        </div>
+        <ProductList products={featuredProducts} />
+      </section>
+
+      {/* Astro Hero Section (from design) */}
+      <AstroHeroSection />
+
+      {/* Categories Section moved below Astro section */}
       <section className="mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Shop by Category
@@ -67,22 +87,6 @@ export default function Home({ featuredProducts, categories }) {
           })}
         </div>
       </section>
-
-      {/* Featured Products Section */}
-      <section>
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Featured Products
-          </h2>
-          <Link
-            href="/category/electronics"
-            className="text-blue-600 hover:text-blue-700 font-medium"
-          >
-            View All
-          </Link>
-        </div>
-        <ProductList products={featuredProducts} />
-      </section>
     </div>
   );
 }
@@ -90,7 +94,7 @@ export default function Home({ featuredProducts, categories }) {
 export async function getStaticProps() {
   // Get featured products
   const featuredProducts = productsData.filter(product => product.featured);
-  
+
   // Get categories with product counts
   const categoryMap = {};
   productsData.forEach(product => {
@@ -100,7 +104,7 @@ export async function getStaticProps() {
       categoryMap[product.category] = 1;
     }
   });
-  
+
   const categories = Object.entries(categoryMap).map(([name, count]) => ({
     name,
     count
